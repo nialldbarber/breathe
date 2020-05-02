@@ -1,0 +1,8 @@
+extends:
+  - wesbos
+  - plugin:prettier/recommended
+
+rules:
+  import/no-unresolved: 0
+  react/prop-types: 0
+  react-hooks/exhaustive-deps: never
