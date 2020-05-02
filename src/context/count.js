@@ -14,7 +14,7 @@ const CountContext = createContext(store);
 
 const CountProvider = (props) => {
   const [
-    { internalCount, count, message, breatheMessage, begin, countdown },
+    { internalCount, count, message, begin, countdown },
     dispatch,
   ] = useImmerReducer(reducer, store);
 

@@ -13,6 +13,8 @@ describe('<Counter />', () => {
     );
   });
 
+  afterEach(() => component.unmount());
+
   test('Interval value works', () => {
     expect(component.props().interval).toEqual(intervalValue);
   });

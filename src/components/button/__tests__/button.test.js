@@ -9,6 +9,8 @@ describe('<Button />', () => {
     component = mount(<Button type="button" text={buttonText} fn={() => {}} />);
   });
 
+  afterEach(() => component.unmount());
+
   test('To match snapshot', () => {
     expect(component).toMatchSnapshot();
   });
