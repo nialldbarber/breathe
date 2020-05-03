@@ -1,10 +1,12 @@
 import React from 'react';
-import { CountProvider } from '~/context/count';
+import { CountProvider } from '~/context';
 import Counter from '~/components/counter';
+import InputRange from '~/components/input-range';
 
 const App = () => (
   <CountProvider>
-    <Counter interval={4} minutes={1} />
+    <Counter />
+    <InputRange />
   </CountProvider>
 );
 

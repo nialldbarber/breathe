@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { CountContext } from '~/context/count';
+import { CountContext } from '~/context';
 import Button from '~/components/button';
 import Message from '~/components/message';
 import Bar from '~/components/bar';
 import { secToMs, minToMs } from '~/utils/time';
 
-const Counter = ({ interval, minutes }) => {
+const Counter = () => {
   const [btnCount, setBtnCount] = useState(0);
   const {
     count,
@@ -16,15 +16,19 @@ const Counter = ({ interval, minutes }) => {
     pauseTimer,
     resetTimer,
     setMessage,
+    time,
+    interval,
   } = useContext(CountContext);
 
   const int = secToMs(interval);
-  const time = minToMs(minutes);
+  const minutes = minToMs(time);
+
+  console.log('it is', minutes);
 
   useEffect(() => {
     const timer = setInterval(() => {
       if (begin) {
-        if (count >= time) {
+        if (count >= minutes) {
           setMessage('Done!');
           clearInterval(timer);
         } else {

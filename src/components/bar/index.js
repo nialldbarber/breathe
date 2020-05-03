@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CountContext } from '~/context/count';
+import { CountContext } from '~/context';
 import { switchColors } from '~/utils/colors';
 import { Container, BarLine } from '~/components/bar/styles';
 

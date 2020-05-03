@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { CountContext } from '~/context/count';
+import { CountContext } from '~/context';
 import { msToSec } from '~/utils/time';
 
 const Message = () => {

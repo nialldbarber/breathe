@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import { useImmerReducer } from 'use-immer';
 import { store } from '~/store';
-import reducer from '~/reducers/count';
+import reducer from '~/reducers';
 import {
   INTERNAL_COUNT,
   RESET_INTERNAL_COUNT,
@@ -9,12 +9,22 @@ import {
 } from '~/constants/count';
 import { SET_MESSAGE } from '~/constants/message';
 import { BEGIN, PAUSE, RESET } from '~/constants/modes';
+import { SET_TOTAL_TIME, SET_TIME, SET_INTERVAL } from '~/constants/input';
 
 const CountContext = createContext(store);
 
 const CountProvider = (props) => {
   const [
-    { internalCount, count, message, begin, countdown },
+    {
+      internalCount,
+      count,
+      message,
+      begin,
+      countdown,
+      time,
+      minutes,
+      interval,
+    },
     dispatch,
   ] = useImmerReducer(reducer, store);
 
@@ -31,6 +41,11 @@ const CountProvider = (props) => {
   const pauseTimer = () => dispatch({ type: PAUSE });
   const resetTimer = () => dispatch({ type: RESET });
 
+  // Input
+  const getTime = (t) => dispatch({ type: SET_TOTAL_TIME, time: t });
+  const getMinutes = (m) => dispatch({ type: SET_TIME, minutes: m });
+  const getInterval = (i) => dispatch({ type: SET_INTERVAL, interval: i });
+
   return (
     <CountContext.Provider
       value={{
@@ -46,6 +61,12 @@ const CountProvider = (props) => {
         beginTimer,
         pauseTimer,
         resetTimer,
+        getMinutes,
+        getInterval,
+        getTime,
+        time,
+        minutes,
+        interval,
       }}
       {...props}
     />
