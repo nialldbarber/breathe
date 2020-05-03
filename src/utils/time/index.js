@@ -8,6 +8,7 @@ const msToSec = (ms) => ms / 1000;
 
 /**
  * Get all possible divisors of a number
+ * @param {number} x
  */
 const getDivisors = (x) => {
   let output = [];

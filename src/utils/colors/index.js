@@ -1,23 +1,26 @@
 /**
  * Switch colours fn
- * @param {*} count
+ * @param {number} count
+ * @param {string} c1
+ * @param {string} c2
+ * @param {string} c3
  */
-const switchColors = (count) => {
+const switchColors = (count, c1, c2, c3) => {
   switch (count) {
     case 1:
       return {
         width: '33.33%',
-        background: '#2F7BDD',
+        background: c1,
       };
     case 2:
       return {
         width: '66.66%',
-        background: '#7C38ED',
+        background: c2,
       };
     case 3:
       return {
         width: '100%',
-        background: '#38ED7C',
+        background: c3,
       };
     case 4:
       return {
