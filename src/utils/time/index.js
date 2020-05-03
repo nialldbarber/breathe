@@ -21,8 +21,8 @@ const getDivisors = (x) => {
   }
 
   if (x < 1) throw new Error('Input must be more that 1');
-  output = new Set(total);
 
+  output = new Set(total);
   output = Array.from(output);
   output.pop(); // remove x
   output = output.filter((num) => num !== 1 && num <= 60); // don't include 1

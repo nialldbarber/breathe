@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+const colors = ['#2F7BDD', '#7C38ED', '#38ED7C'];
+
 const Container = styled.div`
   position: relative;
   display: grid;
@@ -23,7 +25,7 @@ const Container = styled.div`
 
 const BarLine = styled.div`
   height: 100px;
-  transition: ${({ transition }) => transition}ms ease-in-out;
+  transition: width ${({ transition }) => transition}ms ease-in-out;
 `;
 
-export { Container, BarLine };
+export { Container, BarLine, colors };

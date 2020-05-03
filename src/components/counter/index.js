@@ -23,8 +23,6 @@ const Counter = () => {
   const int = secToMs(interval);
   const minutes = minToMs(time);
 
-  console.log('it is', minutes);
-
   useEffect(() => {
     const timer = setInterval(() => {
       if (begin) {

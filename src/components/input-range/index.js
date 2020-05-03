@@ -33,6 +33,7 @@ const InputRange = () => {
 
       <div style={{ border: '1px dashed red' }}>
         <p>Time is: {time}</p>
+        <p>Interval is: {interval}</p>
       </div>
 
       <button
@@ -47,7 +48,9 @@ const InputRange = () => {
 
       <p>Possible divisors are:</p>
       {minutes?.map((x) => (
-        <p key={x}>{x}</p>
+        <button type="button" key={x} onClick={() => getInterval(x)}>
+          {x}
+        </button>
       ))}
     </div>
   );
