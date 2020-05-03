@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { CountContext } from '~/context';
 import useForm from '~/hooks/useForm';
+import Button from '~/components/button';
 import { minToSec, getDivisors } from '~/utils/time';
 
 const InputRange = () => {
+  const [active, setActive] = useState(-1);
   const {
     time, // single value
     minutes, // list of intervals
@@ -25,33 +27,36 @@ const InputRange = () => {
           name="time"
           min="0"
           max="60"
-          value={values.time} // convert to 60?
+          value={values.time}
           onChange={handleChange}
           style={{ width: '800px' }}
         />
       </label>
 
-      <div style={{ border: '1px dashed red' }}>
-        <p>Time is: {time}</p>
-        <p>Interval is: {interval}</p>
-      </div>
-
-      <button
-        type="button"
-        onClick={() => {
+      <Button
+        text="Get intervals"
+        fn={() => {
           getTime(values.time);
           getMinutes(getDivisors(minToSec(values.time)));
         }}
-      >
-        Get results
-      </button>
+      />
 
       <p>Possible divisors are:</p>
-      {minutes?.map((x) => (
-        <button type="button" key={x} onClick={() => getInterval(x)}>
-          {x}
-        </button>
-      ))}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 55px' }}>
+        {minutes?.map((x, i) => (
+          <Button
+            type="button"
+            id={x}
+            key={x}
+            text={x}
+            active={active === i}
+            fn={() => {
+              getInterval(x);
+              setActive(i);
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 };

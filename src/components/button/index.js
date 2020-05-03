@@ -1,9 +1,10 @@
 import React from 'react';
+import { Container } from '~/styles/components/button';
 
-const Button = ({ text, fn }) => (
-  <button type="button" onClick={fn}>
+const Button = ({ text, active, fn }) => (
+  <Container type="button" onClick={fn} className={active ? 'active' : ''}>
     {text}
-  </button>
+  </Container>
 );
 
 export default Button;
