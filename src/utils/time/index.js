@@ -20,7 +20,7 @@ const getDivisors = (x) => {
     }
   }
 
-  if (x < 1) throw new Error('Input must be more that 1');
+  if (x < 1) throw new Error('Input must be more that 0');
 
   output = new Set(total);
   output = Array.from(output);
