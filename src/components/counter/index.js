@@ -25,7 +25,7 @@ const Counter = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (begin) {
+      if (begin && interval !== null) {
         if (count >= minutes) {
           setMessage('Done!');
           clearInterval(timer);
@@ -41,8 +41,8 @@ const Counter = () => {
 
   return (
     <>
-      <Bar int={int} />
-      <Message />
+      {begin ? <Bar int={int} /> : ''}
+      {interval ? <Message /> : ''}
       {begin ? (
         <Button text="Pause" fn={pauseTimer} />
       ) : (
